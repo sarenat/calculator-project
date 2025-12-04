@@ -3,3 +3,41 @@
     align-items: center;
     justify-content: space-around;
 }
+.introduction {
+    margin: 15px;
+}
+
+.calculator {
+    border: 5px solid;
+    border-color: pink;
+    margin-top: 10px;
+    border-radius: 10px;
+    margin: auto;
+
+    height: 300px;
+    width: 200px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+button {
+    border-radius: 15px;
+    background-color: lavender;
+}
+.row-1, .row-2, .row-3, .row-4, .row-5 {
+    display: flex;
+    width: 100%;
+}
+.display {
+    margin-left: auto;
+    margin-right: 1em;
+}
+.clear, .zero {
+    flex-grow: 2;
+}
+.operator {
+    flex-grow: 1;
+}
+.number {
+    flex-grow: 1;
+}
