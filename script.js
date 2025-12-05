@@ -29,18 +29,24 @@ let displayValue = document.querySelector(".display-value");
 
 const numberButtons = document.querySelectorAll(".number");
 numberButtons.forEach(button => {
-    button.addEventListener("click", e => {
+    button.addEventListener("click", () => {
         display.removeChild(displayValue);
-        displayValue.textContent += button.textContent;
+        if (displayValue.textContent != 0) displayValue.textContent += button.textContent;
+        else displayValue.textContent = button.textContent;
         display.appendChild(displayValue);
     });
 });
 
 const operatorButtons = document.querySelectorAll(".operator");
+operatorButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        operation = button.textContent;
+    });
+});
 
 const clearButton = document.querySelector(".clear");
-clearButton.addEventListener("click", e => {
+clearButton.addEventListener("click", () => {
     display.removeChild(displayValue);
-    displayValue.textContent = null;
+    displayValue.textContent = 0;
     display.appendChild(displayValue);
 });

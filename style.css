@@ -32,12 +32,12 @@ button {
     margin-left: auto;
     margin-right: 1em;
 }
-.clear, .zero {
-    flex-grow: 2;
-}
 .operator {
     flex-grow: 1;
 }
 .number {
     flex-grow: 1;
+}
+.clear, .zero {
+    flex-grow: 2;
 }
