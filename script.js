@@ -11,8 +11,8 @@ function divide (x, y) {
     return x / y;
 }
 
-let operatorOne = 0;
-let operatorTwo = 0;
+let operatorOne = null;
+let operatorTwo = null;
 let operation = "";
 
 function operate (operatorOne, operatorTwo, operation) {
@@ -24,18 +24,23 @@ function operate (operatorOne, operatorTwo, operation) {
     }
 }
 
-function display() {
-    const buttons = document.querySelectorAll("button");
+const display = document.querySelector(".display");
+let displayValue = document.querySelector(".display-value");
 
-    buttons.forEach(button => {
-        button.addEventListener("click", e => {
-            const display = document.querySelector(".display");
-            let value = document.querySelector(".display-value");
-
-            display.removeChild(value);
-            value.textContent = button.textContent;
-            display.appendChild(value);
-        });
+const numberButtons = document.querySelectorAll(".number");
+numberButtons.forEach(button => {
+    button.addEventListener("click", e => {
+        display.removeChild(displayValue);
+        displayValue.textContent += button.textContent;
+        display.appendChild(displayValue);
     });
-}
-display();
+});
+
+const operatorButtons = document.querySelectorAll(".operator");
+
+const clearButton = document.querySelector(".clear");
+clearButton.addEventListener("click", e => {
+    display.removeChild(displayValue);
+    displayValue.textContent = null;
+    display.appendChild(displayValue);
+});
