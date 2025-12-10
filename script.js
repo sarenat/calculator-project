@@ -16,11 +16,24 @@ let operatorTwo = null;
 let operation = null;
 
 function operate (operatorOne, operation, operatorTwo) {
+    let result = 0;
     switch (operation) {
-        case "x": return multiply(operatorOne, operatorTwo);
-        case "+": return add(operatorOne, operatorTwo);
-        case "-": return subtract(operatorOne, operatorTwo);
-        case "/": return divide(operatorOne, operatorTwo);
+        case "x": 
+            result = multiply(operatorOne, operatorTwo);
+            updateDisplay(result);
+            return result;
+        case "+": 
+            result = add(operatorOne, operatorTwo);
+            updateDisplay(result);
+            return result;
+        case "-": 
+            result = subtract(operatorOne, operatorTwo);
+            updateDisplay(result);
+            return result;
+        case "/":
+            result = divide(operatorOne, operatorTwo);
+            updateDisplay(result);
+            return result;
     }
 }
 
@@ -31,23 +44,29 @@ function updateOperators (operatorNumber, input) {
     switch (operatorNumber) {
         case 1: 
             operatorOne = input;
+            updateDisplay(operatorOne);
             break;
         case 2:
             operatorTwo = input;
+            updateDisplay(operatorTwo);
             break;
         case 3:
             operatorOne += input;
+            updateDisplay(operatorOne);
             break;
         case 4:
             operatorTwo += input;
+            updateDisplay(operatorTwo);
             break;
     };
 };
 function updateOperation (input) {
     operation = input;
 };
-function updateDisplay() {
-
+function updateDisplay(input) {
+    display.removeChild(displayValue);
+    displayValue.textContent = input;
+    display.appendChild(displayValue);
 }
 function clearDisplay () {
     operatorOne = null;
@@ -59,18 +78,18 @@ function clearDisplay () {
     display.appendChild(displayValue);
 }
 function evaluate (opOne, op, opTwo, input) {
-    if (!opOne && !op && !opTwo) { // Scenario one
+    if (!opOne && !op && !opTwo) { // Scenario one: _ _ _
         if (!isNaN(input)) { // if input is #
             updateOperators(1, input);
         }
-    } else if (opOne && !op && !opTwo) { // Scenario two
+    } else if (opOne && !op && !opTwo) { // Scenario two: x _ _
         if (!isNaN(input)) { // if input is #
             updateOperators(3, input);
         }
         if (isNaN(input)) { // if input is string
             updateOperation(input);
         }
-    } else if (opOne && op && !opTwo) { // Scenario three
+    } else if (opOne && op && !opTwo) { // Scenario three: x o _
         if (!isNaN(input)) { // if input is #
             updateOperators(2, input);
         }
@@ -79,7 +98,7 @@ function evaluate (opOne, op, opTwo, input) {
                 updateOperation(input);
             }
         }
-    } else if (opOne && op && opTwo) { // Scenario four 
+    } else if (opOne && op && opTwo) { // Scenario four: x o x
         if (!isNaN(input)) { // if input is #
             updateOperators(4, input);
         }
