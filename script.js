@@ -5,10 +5,14 @@ function subtract (x, y) {
     return x - y;
 }
 function multiply (x, y) {
-    return x * y;
+    if ((x * y) % 1 != 0) return (x * y).toFixed(2);
+    else return x * y;
 }
 function divide (x, y) {
-    return x / y;
+    if (x == 0 || y == 0) return "SIKE";
+
+    if ((x / y) % 1 != 0) return (x / y).toFixed(2);
+    else return x / y;
 }
 
 let operatorOne = null;
