@@ -71,7 +71,7 @@ function clearDisplay () {
     operatorTwo = null; 
     operation = null;
 
-    updateDisplay(0);
+    updateDisplay("");
 }
 function evaluate (opOne, op, opTwo, input) {
     if (!opOne && !op && !opTwo) { // Scenario one: _ _ _
