@@ -20,21 +20,19 @@ function operate (operatorOne, operation, operatorTwo) {
     switch (operation) {
         case "x": 
             result = multiply(operatorOne, operatorTwo);
-            updateDisplay(result);
-            return result;
+            break;
         case "+": 
             result = add(operatorOne, operatorTwo);
-            updateDisplay(result);
-            return result;
+            break;
         case "-": 
             result = subtract(operatorOne, operatorTwo);
-            updateDisplay(result);
-            return result;
+            break;
         case "/":
             result = divide(operatorOne, operatorTwo);
-            updateDisplay(result);
-            return result;
+            break;
     }
+    updateDisplay(result);
+    return result;
 }
 
 const display = document.querySelector(".display");
