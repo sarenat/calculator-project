@@ -71,9 +71,7 @@ function clearDisplay () {
     operatorTwo = null; 
     operation = null;
 
-    display.removeChild(displayValue);
-    displayValue.textContent = 0;
-    display.appendChild(displayValue);
+    updateDisplay(0);
 }
 function evaluate (opOne, op, opTwo, input) {
     if (!opOne && !op && !opTwo) { // Scenario one: _ _ _
